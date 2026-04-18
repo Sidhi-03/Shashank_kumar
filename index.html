@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shashank Kumar — Cinematographer</title>
+  <meta name="description" content="Shashank Kumar — Cinematographer focused on visual storytelling, lighting design, and emotionally driven cinema." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+
+  <!-- NAV -->
+  <header class="nav" id="nav">
+    <div class="nav-left"><span class="nav-brand">SK.</span></div>
+    <nav class="nav-center">
+      <a href="#about">About</a>
+      <a href="#work">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <a href="#contact" class="nav-cta">Hire Me</a>
+    </div>
+    <button class="burger" id="burger" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+  </header>
+
+  <div class="overlay" id="overlay">
+    <button class="overlay-close" id="overlayClose">&#x2715;</button>
+    <a href="#about"   class="overlay-link" onclick="closeOverlay()">About</a>
+    <a href="#work"    class="overlay-link" onclick="closeOverlay()">Projects</a>
+    <a href="#contact" class="overlay-link" onclick="closeOverlay()">Contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-top-row">
+      <span class="hero-tag">Cinematographer</span>
+      <span class="hero-dot">&middot;</span>
+      <span class="hero-tag">Visual Storyteller</span>
+      <span class="hero-dot">&middot;</span>
+      <span class="hero-tag">New Delhi, India</span>
+    </div>
+
+    <div class="hero-name-block">
+      <div class="hero-line-wrap">
+        <h1 class="hero-line-outline" id="heroLine1">Shashank</h1>
+      </div>
+      <div class="hero-line-wrap hero-row2">
+        <div class="hero-portrait-slot">
+          <!-- REPLACE src with your own photo path, e.g. src="images/portrait.jpg" -->
+          <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=85"
+               alt="Shashank Kumar — Cinematographer" class="hero-portrait" />
+          <div class="hero-portrait-shade"></div>
+          <div class="hero-badge">
+            <svg viewBox="0 0 120 120" class="badge-svg" aria-hidden="true">
+              <defs>
+                <path id="bp" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/>
+              </defs>
+              <text font-size="11" fill="currentColor" letter-spacing="3.2" font-family="DM Sans,sans-serif">
+                <textPath href="#bp">AVAILABLE FOR HIRE &middot; 2025 &middot;</textPath>
+              </text>
+            </svg>
+            <span class="badge-star">&#10022;</span>
+          </div>
+        </div>
+        <h1 class="hero-line-filled" id="heroLine2">Kumar</h1>
+      </div>
+    </div>
+
+    <div class="hero-bottom-row">
+      <p class="hero-desc">
+        Translating story into image &mdash; through light,<br />lens, and lived experience.
+      </p>
+      <a href="#work" class="hero-scroll-cta">
+        My Work
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 5v14M5 12l7 7 7-7"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARQUEE 1 -->
+  <div class="marquee-bar" aria-hidden="true">
+    <div class="marquee-track">
+      <span>Lighting Design</span><em class="ms">&#10022;</em>
+      <span>Camera Operation</span><em class="ms">&#10022;</em>
+      <span>Music Videos</span><em class="ms">&#10022;</em>
+      <span>Lens Selection</span><em class="ms">&#10022;</em>
+      <span>Color Grading</span><em class="ms">&#10022;</em>
+      <span>Visual Storytelling</span><em class="ms">&#10022;</em>
+      <span>Film Production</span><em class="ms">&#10022;</em>
+      <span>Mindscreen Film Institute</span><em class="ms">&#10022;</em>
+      <span>Lighting Design</span><em class="ms">&#10022;</em>
+      <span>Camera Operation</span><em class="ms">&#10022;</em>
+      <span>Music Videos</span><em class="ms">&#10022;</em>
+      <span>Lens Selection</span><em class="ms">&#10022;</em>
+      <span>Color Grading</span><em class="ms">&#10022;</em>
+      <span>Visual Storytelling</span><em class="ms">&#10022;</em>
+      <span>Film Production</span><em class="ms">&#10022;</em>
+      <span>Mindscreen Film Institute</span><em class="ms">&#10022;</em>
+    </div>
+  </div>
+
+  <!-- SHOWREEL -->
+  <section class="reel-section" id="mywork">
+    <div class="reel-label-row">
+      <span class="section-tag">My Work</span>
+      <span class="reel-year">2024 &ndash; 2025</span>
+    </div>
+    <div class="reel-frame" id="reelFrame">
+      <!--
+      HOW TO ADD YOUR VIDEO
+      ─────────────────────
+      YouTube: Find your video → copy the ID after "watch?v="
+               e.g. youtube.com/watch?v=ABC123  →  use ABC123
+               Then replace VIDEO_ID below with it.
+
+      Vimeo:   Find your video → copy the number from the URL
+               e.g. vimeo.com/123456789  →  use 123456789
+               Replace the entire src with:
+               https://player.vimeo.com/video/123456789
+
+      Just swap the src value and delete the placeholder div below.
+      -->
+      <iframe
+        src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1&color=white"
+        title="Shashank Kumar Showreel"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen
+        id="reelIframe">
+      </iframe>
+      <div class="reel-placeholder" id="reelPlaceholder">
+        <div class="rp-inner">
+          <span class="rp-icon">&#9654;</span>
+          <p class="rp-title">Your Showreel Goes Here</p>
+          <p class="rp-hint">Open <code>index.html</code> and replace <code>VIDEO_ID</code> with your YouTube ID</p>
+        </div>
+      </div>
+    </div>
+    <p class="reel-note">Cinematography &middot; Music Videos &middot; Brand Films</p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="work-section" id="work">
+    <div class="work-header">
+      <div class="work-header-left">
+        <p class="section-tag">Selected Projects</p>
+        <h2 class="section-heading">Projects <em>&amp;<br/>Experience</em></h2>
+      </div>
+      <div class="work-header-right">
+        <p>Cinematography projects spanning music video production, brand content, and independent film &mdash; concept to final frame.</p>
+      </div>
+    </div>
+
+    <ul class="project-list">
+
+      <li class="project-row">
+        <div class="proj-num">01</div>
+        <div class="proj-center">
+          <h3 class="proj-title">Music Video Projects</h3>
+          <p class="proj-sub">Director of Photography &mdash; Multiple Production Companies</p>
+          <p class="proj-detail">
+            Collaborated with multiple video production companies. Developed creative decks, shot breakdowns, and technical plans. Aligned visuals with brand identity through strategic lighting and camera angles. Contributed to post-production, providing insights for polished final edits.
+          </p>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-tag">Music Video</span>
+          <span class="proj-year">2023&ndash;25</span>
+        </div>
+        <!-- REPLACE src with your own still from this project -->
+        <div class="proj-hover-img">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=500&q=80" alt="Music Video Still" />
+        </div>
+      </li>
+
+      <li class="project-row">
+        <div class="proj-num">02</div>
+        <div class="proj-center">
+          <h3 class="proj-title">Brand Content &amp; Social Media</h3>
+          <p class="proj-sub">Cinematographer &mdash; End-to-End Production</p>
+          <p class="proj-detail">
+            Managed end-to-end video production, from logistics to final social media posts. Led visual treatment across Reels, photos, and YouTube videos for a cohesive narrative. Applied advanced editing techniques to enhance Reels and YouTube production quality. Delivered high-quality visuals that exceeded client expectations.
+          </p>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-tag">Commercial</span>
+          <span class="proj-year">2024&ndash;25</span>
+        </div>
+        <div class="proj-hover-img">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=500&q=80" alt="Brand Content Still" />
+        </div>
+      </li>
+
+      <li class="project-row">
+        <div class="proj-num">03</div>
+        <div class="proj-center">
+          <h3 class="proj-title">Academic Film Projects</h3>
+          <p class="proj-sub">Director of Photography &mdash; Mindscreen Film Institute</p>
+          <p class="proj-detail">
+            Multiple hands-on academic film projects during Diploma in Cinematography. Specialised in structured day and night lighting setups, advanced camera operations, and cinematographic storytelling. Graduated with distinction.
+          </p>
+        </div>
+        <div class="proj-meta">
+          <span class="proj-tag">Short Film</span>
+          <span class="proj-year">2022&ndash;23</span>
+        </div>
+        <div class="proj-hover-img">
+          <img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=500&q=80" alt="Academic Film Still" />
+        </div>
+      </li>
+
+    </ul>
+  </section>
+
+  <!-- GALLERY STRIP -->
+  <section class="gallery-strip" aria-label="Portfolio stills">
+    <!--
+    HOW TO ADD YOUR OWN IMAGES
+    ───────────────────────────
+    1. Create a folder called "images" next to your index.html
+    2. Put your photos inside it (jpg, png, webp all work)
+    3. Replace each src below with:  src="images/your-filename.jpg"
+    4. Update the alt text to describe each image
+    You can add or remove <figure> blocks freely.
+    -->
+    <div class="gallery-scroll" id="galleryScroll">
+      <figure class="gi"><img src="https://images.unsplash.com/photo-1440404653325-ab127d49abc1?w=800&q=85" alt="Still 1" loading="lazy" /></figure>
+      <figure class="gi gi--tall"><img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=85" alt="Still 2" loading="lazy" /></figure>
+      <figure class="gi"><img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?w=800&q=85" alt="Still 3" loading="lazy" /></figure>
+      <figure class="gi gi--tall"><img src="https://images.unsplash.com/photo-1565120319398-da008925fc1d?w=800&q=85" alt="Still 4" loading="lazy" /></figure>
+      <figure class="gi"><img src="https://images.unsplash.com/photo-1500210600724-67c5e2e06b0c?w=800&q=85" alt="Still 5" loading="lazy" /></figure>
+      <figure class="gi"><img src="https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&q=85" alt="Still 6" loading="lazy" /></figure>
+      <figure class="gi gi--tall"><img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?w=800&q=85" alt="Still 7" loading="lazy" /></figure>
+    </div>
+    <p class="gallery-hint" aria-hidden="true">&larr; drag to explore &rarr;</p>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-left">
+      <p class="section-tag">About</p>
+      <h2 class="about-heading">
+        Light is<br /><em>my language.</em>
+      </h2>
+      <div class="about-stats">
+        <div class="stat-item">
+          <span class="stat-num">3+</span>
+          <span class="stat-label">Years on set</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">Top 3</span>
+          <span class="stat-label">Admission rank</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">&#10022;</span>
+          <span class="stat-label">Distinction</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-right">
+      <!-- REPLACE src with your own portrait photo -->
+      <div class="about-portrait-wrap">
+        <img src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=85"
+             alt="Shashank Kumar" class="about-portrait" loading="lazy" />
+        <div class="about-portrait-chip">New Delhi, India</div>
+      </div>
+
+      <div class="about-text-block">
+
+        <div class="bio-block">
+          <h3 class="bio-label">Bio</h3>
+          <p>Cinematographer focused on visual storytelling, combining technical expertise in camera systems, lens selection, and lighting design with a strong cinematic sensibility. Experienced in collaborating with agencies and creative teams to deliver high-quality, emotionally driven visuals, overseeing projects from concept to final frame with precision and artistic intent.</p>
+        </div>
+
+        <div class="bio-block">
+          <h3 class="bio-label">My Approach</h3>
+          <p>I approach cinematography as a craft where emotion, environment, and narrative intersect through the lens. Each frame I create is guided by lived experiences and a commitment to visual authenticity. My work focuses on translating story into immersive imagery that connects audiences to both reality and artistry.</p>
+        </div>
+
+        <div class="bio-block">
+          <h3 class="bio-label">Skills</h3>
+          <ul class="skills-list">
+            <li><span>&#10022;</span> Lighting Design &mdash; Day &amp; Night Setups</li>
+            <li><span>&#10022;</span> Camera Operation &amp; Lens Handling</li>
+            <li><span>&#10022;</span> Film Production &amp; On-Set Execution</li>
+            <li><span>&#10022;</span> Visual Story Development</li>
+            <li><span>&#10022;</span> Color Correction &amp; Color Grading</li>
+          </ul>
+        </div>
+
+        <div class="bio-block">
+          <h3 class="bio-label">Education</h3>
+          <div class="edu-card">
+            <div class="edu-badge">MFI</div>
+            <div class="edu-info">
+              <strong>Mindscreen Film Institute</strong>
+              <span>Diploma in Cinematography &mdash; Graduated with Distinction</span>
+              <span class="edu-note">Specialised in camera operations &amp; advanced lighting techniques (day &amp; night setups). Ranked among top 3 candidates during the admission selection process.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE 2 -->
+  <div class="marquee-bar marquee-bar--light" aria-hidden="true">
+    <div class="marquee-track marquee-track--rev">
+      <span>Concept to Final Frame</span><em class="ms">&#183;</em>
+      <span>Day &amp; Night Lighting</span><em class="ms">&#183;</em>
+      <span>Creative Decks</span><em class="ms">&#183;</em>
+      <span>Shot Breakdowns</span><em class="ms">&#183;</em>
+      <span>Post-Production</span><em class="ms">&#183;</em>
+      <span>Brand Identity</span><em class="ms">&#183;</em>
+      <span>Reels &amp; YouTube</span><em class="ms">&#183;</em>
+      <span>Concept to Final Frame</span><em class="ms">&#183;</em>
+      <span>Day &amp; Night Lighting</span><em class="ms">&#183;</em>
+      <span>Creative Decks</span><em class="ms">&#183;</em>
+      <span>Shot Breakdowns</span><em class="ms">&#183;</em>
+      <span>Post-Production</span><em class="ms">&#183;</em>
+      <span>Brand Identity</span><em class="ms">&#183;</em>
+      <span>Reels &amp; YouTube</span><em class="ms">&#183;</em>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-top">
+      <p class="section-tag">Contact</p>
+      <h2 class="contact-heading">
+        Let&rsquo;s talk and see<br /><em>where it takes us.</em>
+      </h2>
+    </div>
+
+    <div class="contact-body">
+      <div class="contact-details">
+        <a href="mailto:Armansing5120@gmail.com" class="cd-row">
+          <span class="cd-label">Email</span>
+          <span class="cd-val">Armansing5120@gmail.com &rarr;</span>
+        </a>
+        <a href="tel:+918368084966" class="cd-row">
+          <span class="cd-label">Phone</span>
+          <span class="cd-val">(+91) 83680 84966 &rarr;</span>
+        </a>
+        <a href="https://www.instagram.com/ig_shashanksinghh" target="_blank" rel="noopener" class="cd-row">
+          <span class="cd-label">Instagram</span>
+          <span class="cd-val">@ig_shashanksinghh &rarr;</span>
+        </a>
+        <a href="https://www.imdb.com/find/?q=Shashank+Kumar+cinematographer" target="_blank" rel="noopener" class="cd-row">
+          <!-- Update this link once you have your IMDB profile URL -->
+          <span class="cd-label">IMDB</span>
+          <span class="cd-val">Shashank Kumar &rarr;</span>
+        </a>
+        <div class="cd-row cd-row--static">
+          <span class="cd-label">Open to</span>
+          <span class="cd-val">Music Videos &middot; Brand Films &middot; Collabs</span>
+        </div>
+      </div>
+
+      <form class="contact-form" id="contactForm"
+            action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <!--
+        ACTIVATE THE CONTACT FORM (takes 2 minutes, totally free):
+        1. Go to https://formspree.io → Sign up free
+        2. Click "New Form" → give it a name
+        3. Copy the ID from your endpoint URL  (looks like "xpzgabcd")
+        4. Replace  YOUR_FORM_ID  above with that ID
+        Emails will land directly in your inbox.
+        -->
+        <div class="cf-row">
+          <div class="cf-field">
+            <label for="cfn">Name</label>
+            <input id="cfn" type="text" name="name" placeholder="Your name" required />
+          </div>
+          <div class="cf-field">
+            <label for="cfe">Email</label>
+            <input id="cfe" type="email" name="email" placeholder="your@email.com" required />
+          </div>
+        </div>
+        <div class="cf-field">
+          <label for="cfp">Project Type</label>
+          <input id="cfp" type="text" name="project" placeholder="Music video, brand film, short film&hellip;" />
+        </div>
+        <div class="cf-field">
+          <label for="cfm">Message</label>
+          <textarea id="cfm" name="message" rows="5" placeholder="Tell me about the project&hellip;" required></textarea>
+        </div>
+        <button type="submit" class="cf-submit">
+          <span>Send Message</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </button>
+        <p class="cf-success" id="cfSuccess">Message sent &mdash; I&rsquo;ll be in touch soon.</p>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-brand-col">
+      <span class="footer-name">SHASHANK KUMAR</span>
+      <span class="footer-sub">Cinematographer &middot; New Delhi, India</span>
+    </div>
+    <div class="footer-links-col">
+      <a href="https://www.instagram.com/ig_shashanksinghh" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://www.imdb.com/find/?q=Shashank+Kumar+cinematographer" target="_blank" rel="noopener">IMDB</a>
+      <a href="mailto:Armansing5120@gmail.com">Email</a>
+    </div>
+    <p class="footer-copy">&copy; 2025 Shashank Kumar. All rights reserved.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
