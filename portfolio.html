@@ -6,107 +6,43 @@
 <title>Shashank Kumar — Cinematographer</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --black: #080808;
-    --near-black: #0f0f0f;
-    --charcoal: #1a1a1a;
-    --graphite: #2a2a2a;
-    --mid: #5a5a5a;
-    --silver: #aaaaaa;
-    --light: #e8e4dc;
-    --cream: #f2ede3;
-    --gold: #c8a96e;
-    --gold-dim: #8a7248;
-    --red: #c0392b;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-
-  html { scroll-behavior: smooth; }
 
   body {
-    background: var(--black);
-    color: var(--light);
+    background: #080808;
+    color: #e8e4dc;
     font-family: 'Cormorant Garamond', serif;
-    overflow-x: hidden;
-    cursor: crosshair;
+    line-height: 1.5;
   }
 
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-    pointer-events: none;
-    z-index: 1000;
-    opacity: 0.35;
-  }
-
-  #loader {
-    position: fixed;
-    inset: 0;
-    background: var(--black);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 9999;
-    flex-direction: column;
-    gap: 20px;
-    animation: loaderFade 0.6s ease 2s forwards;
-  }
-
-  @keyframes loaderFade {
-    to { opacity: 0; pointer-events: none; }
-  }
-
-  .loader-text {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 6px;
-    color: var(--gold);
-    text-transform: uppercase;
-    animation: blink 0.8s ease infinite alternate;
-  }
-
-  .loader-bar {
-    width: 200px;
-    height: 1px;
-    background: var(--graphite);
-    overflow: hidden;
-  }
-
-  .loader-fill {
-    height: 100%;
-    background: var(--gold);
-    animation: fillBar 1.8s ease forwards;
-  }
-
-  @keyframes fillBar { from { width: 0; } to { width: 100%; } }
-  @keyframes blink { from { opacity: 0.3; } to { opacity: 1; } }
-
+  /* Navigation */
   nav {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
     padding: 24px 48px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: linear-gradient(to bottom, rgba(8,8,8,0.9) 0%, transparent 100%);
+    background: rgba(8,8,8,0.95);
+    z-index: 100;
+    backdrop-filter: blur(10px);
   }
 
-  .nav-logo {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
+  .logo {
+    font-size: 24px;
     font-weight: 300;
     letter-spacing: 4px;
-    color: var(--cream);
+    color: #e8e4dc;
     text-decoration: none;
   }
 
-  .nav-logo span { color: var(--gold); }
+  .logo span { color: #c8a96e; }
 
   .nav-links {
     display: flex;
@@ -116,639 +52,441 @@
 
   .nav-links a {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 3px;
+    font-size: 11px;
+    letter-spacing: 2px;
     text-transform: uppercase;
-    color: var(--silver);
+    color: #aaaaaa;
     text-decoration: none;
     transition: color 0.3s;
   }
 
-  .nav-links a:hover { color: var(--gold); }
+  .nav-links a:hover { color: #c8a96e; }
 
-  #hero {
-    height: 100vh;
-    position: relative;
+  /* Hero Section */
+  .hero {
+    min-height: 100vh;
     display: flex;
-    align-items: flex-end;
-    padding: 0 48px 80px;
-    overflow: hidden;
-  }
-
-  .hero-bg {
-    position: absolute;
-    inset: 0;
-    background: 
-      radial-gradient(ellipse at 20% 50%, rgba(200, 169, 110, 0.06) 0%, transparent 60%),
-      radial-gradient(ellipse at 80% 20%, rgba(192, 57, 43, 0.04) 0%, transparent 50%),
-      linear-gradient(160deg, #0f0f0f 0%, #080808 50%, #0a0808 100%);
-  }
-
-  .hero-lines {
-    position: absolute;
-    inset: 0;
-    background-image: 
-      linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
-    background-size: 80px 80px;
+    align-items: center;
+    padding: 0 48px;
+    background: linear-gradient(135deg, #0f0f0f 0%, #080808 100%);
+    position: relative;
   }
 
   .hero-content {
-    position: relative;
-    z-index: 2;
-    max-width: 700px;
+    max-width: 800px;
   }
 
   .hero-label {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 2.2s forwards;
-  }
-
-  .hero-name {
-    font-size: clamp(60px, 10vw, 120px);
-    font-weight: 300;
-    line-height: 0.9;
-    letter-spacing: -2px;
-    color: var(--cream);
-    margin-bottom: 16px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 2.4s forwards;
-  }
-
-  .hero-name em {
-    font-style: italic;
-    color: var(--gold);
-  }
-
-  .hero-role {
-    font-size: 18px;
-    font-weight: 300;
-    letter-spacing: 2px;
-    color: var(--silver);
-    font-style: italic;
-    margin-bottom: 40px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 2.6s forwards;
-  }
-
-  .hero-tagline {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: var(--mid);
-    line-height: 2;
-    max-width: 400px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 2.8s forwards;
-  }
-
-  .scroll-hint {
-    position: absolute;
-    bottom: 40px;
-    right: 120px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    opacity: 0;
-    animation: fadeUp 0.8s ease 3s forwards;
-  }
-
-  .scroll-hint span {
-    font-family: 'Space Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--mid);
-    writing-mode: vertical-rl;
-  }
-
-  .scroll-line {
-    width: 1px;
-    height: 60px;
-    background: linear-gradient(to bottom, var(--gold), transparent);
-    animation: scrollPulse 2s ease infinite;
-  }
-
-  @keyframes scrollPulse {
-    0%, 100% { transform: scaleY(1); opacity: 0.5; }
-    50% { transform: scaleY(0.5); opacity: 1; }
-  }
-
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(30px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  section {
-    padding: 120px 48px;
-    position: relative;
-  }
-
-  .section-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .section-label::after {
-    content: '';
-    flex: 1;
-    max-width: 60px;
-    height: 1px;
-    background: var(--gold-dim);
-  }
-
-  .section-title {
-    font-size: clamp(36px, 5vw, 64px);
-    font-weight: 300;
-    letter-spacing: -1px;
-    line-height: 1;
-    color: var(--cream);
-    margin-bottom: 60px;
-  }
-
-  .section-title em { font-style: italic; color: var(--gold); }
-
-  #about { background: var(--near-black); }
-
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    align-items: start;
-    max-width: 1100px;
-  }
-
-  .about-text p {
-    font-size: 20px;
-    font-weight: 300;
-    line-height: 1.8;
-    color: var(--silver);
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #c8a96e;
     margin-bottom: 20px;
   }
 
-  .about-text p strong {
-    color: var(--cream);
-    font-weight: 400;
-  }
-
-  .about-stats {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    padding-top: 20px;
-  }
-
-  .stat {
-    border-left: 1px solid var(--graphite);
-    padding-left: 24px;
-  }
-
-  .stat-num {
-    font-size: 48px;
+  .hero h1 {
+    font-size: clamp(50px, 8vw, 100px);
     font-weight: 300;
-    color: var(--gold);
     line-height: 1;
+    margin-bottom: 20px;
+  }
+
+  .hero h1 span {
+    color: #c8a96e;
     font-style: italic;
   }
 
-  .stat-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--mid);
-    margin-top: 6px;
+  .hero-tagline {
+    font-size: 18px;
+    color: #aaaaaa;
+    margin-bottom: 30px;
+    font-style: italic;
   }
 
-  #work { background: var(--black); }
+  .hero-bio {
+    font-size: 16px;
+    color: #7a7a7a;
+    max-width: 500px;
+    line-height: 1.8;
+  }
 
+  /* Sections */
+  section {
+    padding: 100px 48px;
+  }
+
+  .section-title {
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 300;
+    margin-bottom: 60px;
+  }
+
+  .section-title span {
+    color: #c8a96e;
+    font-style: italic;
+  }
+
+  /* About */
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    max-width: 1200px;
+  }
+
+  .about-text p {
+    font-size: 18px;
+    line-height: 1.8;
+    color: #aaaaaa;
+    margin-bottom: 20px;
+  }
+
+  .about-text strong {
+    color: #e8e4dc;
+  }
+
+  .info-card {
+    background: #1a1a1a;
+    padding: 30px;
+    border-radius: 4px;
+  }
+
+  .info-item {
+    margin-bottom: 30px;
+    border-left: 2px solid #c8a96e;
+    padding-left: 20px;
+  }
+
+  .info-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c8a96e;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .info-value {
+    font-size: 24px;
+    font-weight: 300;
+  }
+
+  /* Work Grid */
   .work-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 2px;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 30px;
+    max-width: 1400px;
+    margin: 0 auto;
   }
 
-  .work-item {
-    position: relative;
+  .work-card {
+    background: #1a1a1a;
+    border-radius: 8px;
     overflow: hidden;
-    aspect-ratio: 16/10;
-    background: var(--charcoal);
-    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
   }
 
-  .work-item::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(8,8,8,0.95) 0%, rgba(8,8,8,0.2) 60%, transparent 100%);
-    z-index: 1;
+  .work-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
   }
 
-  .work-bg {
-    position: absolute;
-    inset: 0;
-    background-size: cover;
-    background-position: center;
-    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  .work-image {
+    height: 220px;
+    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #c8a96e;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
   }
-
-  .work-item:hover .work-bg { transform: scale(1.08); }
 
   .work-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    padding: 28px;
-    z-index: 2;
-    transform: translateY(10px);
-    transition: transform 0.4s ease;
+    padding: 24px;
   }
 
-  .work-item:hover .work-info { transform: translateY(0); }
-
-  .work-type {
+  .work-category {
     font-family: 'Space Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 4px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c8a96e;
     text-transform: uppercase;
-    color: var(--gold);
     margin-bottom: 8px;
   }
 
   .work-title {
     font-size: 22px;
-    font-weight: 300;
-    color: var(--cream);
-    margin-bottom: 6px;
-    font-style: italic;
+    font-weight: 400;
+    margin-bottom: 10px;
   }
 
-  .work-meta {
-    font-family: 'Space Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 2px;
-    color: var(--mid);
+  .work-desc {
+    font-size: 14px;
+    color: #888;
+    line-height: 1.6;
   }
 
-  .work-link {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    z-index: 3;
-    width: 36px;
-    height: 36px;
-    border: 1px solid rgba(200,169,110,0.3);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.3s, background 0.3s;
-    text-decoration: none;
-    color: var(--gold);
-  }
-
-  .work-link:hover { background: rgba(200,169,110,0.1); }
-  .work-item:hover .work-link { opacity: 1; }
-
-  .work-link svg { width: 14px; height: 14px; }
-
-  #links { background: var(--near-black); }
-
+  /* Links Grid */
   .links-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 2px;
+    gap: 20px;
+    max-width: 1200px;
   }
 
   .link-card {
-    background: var(--charcoal);
-    padding: 40px 36px;
-    border: 1px solid var(--graphite);
+    background: #1a1a1a;
+    padding: 32px;
+    border-radius: 8px;
     text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    transition: background 0.3s, border-color 0.3s, transform 0.3s;
-    position: relative;
-    overflow: hidden;
+    transition: all 0.3s;
+    border: 1px solid #2a2a2a;
   }
 
-  .link-card::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 2px;
-    background: var(--gold);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.4s ease;
+  .link-card:hover {
+    background: #252525;
+    transform: translateY(-3px);
+    border-color: #c8a96e;
   }
-
-  .link-card:hover { background: var(--graphite); border-color: var(--gold-dim); transform: translateY(-4px); }
-  .link-card:hover::before { transform: scaleX(1); }
 
   .link-platform {
     font-family: 'Space Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 4px;
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: #c8a96e;
     text-transform: uppercase;
-    color: var(--gold);
+    margin-bottom: 12px;
   }
 
   .link-title {
-    font-size: 24px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--cream);
-    line-height: 1.2;
+    font-size: 20px;
+    color: #e8e4dc;
+    margin-bottom: 8px;
   }
 
   .link-desc {
-    font-size: 14px;
-    color: var(--mid);
-    line-height: 1.7;
-    flex: 1;
+    font-size: 13px;
+    color: #888;
+    line-height: 1.6;
   }
 
-  .link-arrow {
-    align-self: flex-end;
-    font-size: 24px;
-    color: var(--gold);
-    transition: transform 0.3s;
-    font-style: normal;
-  }
-
-  .link-card:hover .link-arrow { transform: translate(4px, -4px); }
-
-  #skills { background: var(--black); }
-
-  .skills-wrapper {
+  /* Skills */
+  .skills-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 80px;
-    max-width: 900px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 50px;
+    max-width: 1000px;
   }
 
-  .skills-col h3 {
+  .skill-category h3 {
     font-family: 'Space Mono', monospace;
-    font-size: 9px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 32px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--graphite);
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #c8a96e;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #2a2a2a;
   }
 
   .skill-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 16px 0;
-    border-bottom: 1px solid rgba(42,42,42,0.5);
+    margin-bottom: 20px;
   }
 
   .skill-name {
-    font-size: 18px;
-    font-weight: 300;
-    color: var(--silver);
-    font-style: italic;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #cccccc;
   }
 
   .skill-bar {
-    width: 80px;
-    height: 1px;
-    background: var(--graphite);
-    position: relative;
+    height: 2px;
+    background: #2a2a2a;
+    border-radius: 2px;
     overflow: hidden;
   }
 
-  .skill-fill {
+  .skill-progress {
     height: 100%;
-    background: var(--gold);
-    transition: width 1.5s ease;
-    width: 0;
+    background: #c8a96e;
+    width: 0%;
+    transition: width 1s ease;
   }
 
-  .skill-fill.animate { width: var(--w); }
-
-  #contact {
-    background: var(--near-black);
+  /* Contact */
+  .contact-section {
     text-align: center;
-    padding: 120px 48px;
+    background: #0f0f0f;
   }
 
-  .contact-big {
-    font-size: clamp(48px, 8vw, 100px);
+  .contact-title {
+    font-size: clamp(40px, 6vw, 80px);
     font-weight: 300;
-    font-style: italic;
-    color: var(--cream);
-    line-height: 1;
-    margin-bottom: 40px;
-    letter-spacing: -2px;
+    margin-bottom: 20px;
   }
 
-  .contact-big span { color: var(--gold); }
+  .contact-title span {
+    color: #c8a96e;
+    font-style: italic;
+  }
 
   .contact-sub {
     font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    color: var(--mid);
-    text-transform: uppercase;
-    margin-bottom: 60px;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 50px;
   }
 
-  .contact-links {
+  .contact-buttons {
     display: flex;
-    gap: 32px;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
   }
 
-  .contact-link {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--silver);
+  .contact-btn {
+    padding: 14px 32px;
+    background: transparent;
+    border: 1px solid #3a3a3a;
+    color: #e8e4dc;
     text-decoration: none;
-    padding: 16px 32px;
-    border: 1px solid var(--graphite);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
     transition: all 0.3s;
   }
 
-  .contact-link:hover {
-    color: var(--gold);
-    border-color: var(--gold);
-    background: rgba(200,169,110,0.05);
+  .contact-btn:hover {
+    border-color: #c8a96e;
+    color: #c8a96e;
   }
 
-  footer {
-    background: var(--black);
-    padding: 32px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    border-top: 1px solid var(--graphite);
-  }
-
-  footer p {
+  .phone {
+    margin-top: 40px;
     font-family: 'Space Mono', monospace;
-    font-size: 8px;
-    letter-spacing: 2px;
-    color: var(--mid);
-    text-transform: uppercase;
+    font-size: 14px;
+    color: #c8a96e;
   }
 
-  .footer-mark {
-    font-size: 18px;
-    font-weight: 300;
-    font-style: italic;
-    color: var(--gold-dim);
-    letter-spacing: 4px;
+  /* Footer */
+  footer {
+    padding: 40px 48px;
+    text-align: center;
+    border-top: 1px solid #1a1a1a;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: #666;
   }
 
+  /* Responsive */
   @media (max-width: 768px) {
-    nav { padding: 20px 24px; }
-    .nav-links { display: none; }
-    section { padding: 80px 24px; }
-    #hero { padding: 0 24px 60px; }
-    .about-grid { grid-template-columns: 1fr; gap: 40px; }
-    .skills-wrapper { grid-template-columns: 1fr; gap: 40px; }
-    footer { flex-direction: column; gap: 16px; text-align: center; }
-    .scroll-hint { display: none; }
+    nav {
+      padding: 20px 24px;
+    }
+    .nav-links {
+      display: none;
+    }
+    section {
+      padding: 60px 24px;
+    }
+    .hero {
+      padding: 0 24px;
+    }
+    .about-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .work-grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 </head>
 <body>
 
-<div id="loader">
-  <div class="loader-text">Loading</div>
-  <div class="loader-bar"><div class="loader-fill"></div></div>
-</div>
-
 <nav>
-  <a href="#hero" class="nav-logo">S<span>.</span>KUMAR</a>
+  <a href="#" class="logo">S<span>.</span>KUMAR</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Projects</a></li>
-    <li><a href="#links">Contact</a></li>
+    <li><a href="#work">Work</a></li>
     <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<section id="hero">
-  <div class="hero-bg"></div>
-  <div class="hero-lines"></div>
+<section class="hero">
   <div class="hero-content">
-    <div class="hero-label">Cinematographer · Hyderabad</div>
-    <h1 class="hero-name">Shashank<br><em>Kumar</em></h1>
-    <p class="hero-role">Cinematographer & Visual Storyteller</p>
-    <p class="hero-tagline">
-      LIGHTING DESIGN · CAMERA OPERATION · COLOR GRADING<br>
-      MINDSREEN FILM INSTITUTE · DIPLOMA WITH DISTINCTION
-    </p>
-  </div>
-  <div class="scroll-hint">
-    <div class="scroll-line"></div>
-    <span>Scroll</span>
+    <div class="hero-label">CINEMATOGRAPHER / VISUAL STORYTELLER</div>
+    <h1>Shashank <span>Kumar</span></h1>
+    <div class="hero-tagline">Lighting Design · Camera Operation · Color Grading</div>
+    <div class="hero-bio">Mindscreen Film Institute Graduate | Diploma with Distinction</div>
   </div>
 </section>
 
 <section id="about">
-  <div class="section-label">01 — About</div>
-  <h2 class="section-title">Eye behind<br>the <em>lens</em></h2>
+  <h2 class="section-title">About <span>Me</span></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a <strong>cinematographer</strong> focused on visual storytelling, combining technical expertise in camera systems, lens selection, and lighting design with a strong cinematic sensibility. Experienced in collaborating with agencies and creative teams to deliver high-quality, emotionally driven visuals, overseeing projects from concept to final frame with precision and artistic intent.</p>
-      <p>I approach cinematography as a craft where emotion, environment, and narrative intersect through the lens. Each frame I create is guided by lived experiences and a commitment to visual authenticity. My work focuses on translating story into immersive imagery that connects audiences to both reality and artistry.</p>
-      <p><strong>Education:</strong> Completed a Diploma in Cinematography from <strong>Mindscreen Film Institute</strong>, specializing in camera operations and advanced lighting techniques (structured day and night setups). Graduated with distinction — ranked among the top three candidates during admission.</p>
+      <p>I'm a <strong>cinematographer</strong> focused on visual storytelling, combining technical expertise in camera systems, lens selection, and lighting design with a strong cinematic sensibility.</p>
+      <p>I approach cinematography as a craft where emotion, environment, and narrative intersect through the lens. Each frame I create is guided by lived experiences and a commitment to visual authenticity.</p>
+      <p>Completed a Diploma in Cinematography from <strong>Mindscreen Film Institute</strong>, specializing in camera operations and advanced lighting techniques. Graduated with distinction — ranked among the top three candidates during admission.</p>
     </div>
-    <div class="about-stats">
-      <div class="stat">
-        <div class="stat-num">Distinction</div>
-        <div class="stat-label">Mindscreen Film Institute</div>
+    <div class="info-card">
+      <div class="info-item">
+        <div class="info-label">Education</div>
+        <div class="info-value">Mindscreen Film Institute</div>
+        <div style="color:#888; margin-top:5px;">Diploma in Cinematography · Distinction</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">Top 3</div>
-        <div class="stat-label">Admission Selection Rank</div>
+      <div class="info-item">
+        <div class="info-label">Location</div>
+        <div class="info-value">Hyderabad, India</div>
       </div>
-      <div class="stat">
-        <div class="stat-num">HYD</div>
-        <div class="stat-label">Hyderabad, India</div>
+      <div class="info-item">
+        <div class="info-label">Rank</div>
+        <div class="info-value">Top 3 — Admission Selection</div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="work">
-  <div class="section-label">02 — My Work</div>
-  <h2 class="section-title">Selected<br><em>Projects</em></h2>
+<section id="work" style="background:#0a0a0a;">
+  <h2 class="section-title">Featured <span>Work</span></h2>
   <div class="work-grid">
-
-    <div class="work-item">
-      <div class="work-bg"></div>
-      <a class="work-link" href="#" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
+    
+    <div class="work-card">
+      <div class="work-image">🎬 MUSIC VIDEO</div>
       <div class="work-info">
-        <div class="work-type">Music Video</div>
-        <div class="work-title">Artist Collaboration</div>
-        <div class="work-meta">Creative Decks · Shot Breakdowns · Post-Production</div>
+        <div class="work-category">Music Video</div>
+        <div class="work-title">Artist Collaborations</div>
+        <div class="work-desc">Creative decks, shot breakdowns, lighting design, and post-production for multiple music videos.</div>
       </div>
     </div>
 
-    <div class="work-item">
-      <div class="work-bg"></div>
-      <a class="work-link" href="#" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
+    <div class="work-card">
+      <div class="work-image">📱 BRAND CONTENT</div>
       <div class="work-info">
-        <div class="work-type">Brand Content</div>
-        <div class="work-title">Social Media Campaigns</div>
-        <div class="work-meta">Reels · YouTube · Visual Treatment</div>
+        <div class="work-category">Social Media</div>
+        <div class="work-title">Brand Campaigns</div>
+        <div class="work-desc">End-to-end video production for Reels, YouTube, and social media — from concept to final edit.</div>
       </div>
     </div>
 
-    <div class="work-item">
-      <div class="work-bg"></div>
-      <a class="work-link" href="#" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
+    <div class="work-card">
+      <div class="work-image">🎓 ACADEMIC FILMS</div>
       <div class="work-info">
-        <div class="work-type">Academic Films</div>
-        <div class="work-title">Mindscreen Projects</div>
-        <div class="work-meta">Camera Operation · Lighting Design · Color Grading</div>
+        <div class="work-category">Mindscreen Projects</div>
+        <div class="work-title">Student Films</div>
+        <div class="work-desc">Camera operation, lighting design (day/night setups), and color grading for diploma projects.</div>
       </div>
     </div>
 
-    <div class="work-item">
-      <div class="work-bg"></div>
-      <a class="work-link" href="#" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
+    <div class="work-card">
+      <div class="work-image">📸 PHOTOGRAPHY</div>
       <div class="work-info">
-        <div class="work-type">Photography</div>
-        <div class="work-title">Still Portfolio</div>
-        <div class="work-meta">Framing · Composition · Visual Storytelling</div>
+        <div class="work-category">Still Portfolio</div>
+        <div class="work-title">Visual Storytelling</div>
+        <div class="work-desc">Framing, composition, and narrative through still photography.</div>
       </div>
     </div>
 
@@ -756,121 +494,124 @@
 </section>
 
 <section id="links">
-  <div class="section-label">03 — Connect</div>
-  <h2 class="section-title">Find me<br><em>online</em></h2>
+  <h2 class="section-title">Connect <span>Online</span></h2>
   <div class="links-grid">
-
-    <a href="#" target="_blank" class="link-card">
+    
+    <a href="#" class="link-card" target="_blank">
       <div class="link-platform">Instagram</div>
       <div class="link-title">@ig_shashanksinghh</div>
-      <div class="link-desc">Visual diary, behind-the-scenes, frames from recent projects, and creative experiments.</div>
-      <em class="link-arrow">↗</em>
+      <div class="link-desc">Visual diary, BTS, frames from recent projects</div>
     </a>
 
-    <a href="#" target="_blank" class="link-card">
+    <a href="#" class="link-card" target="_blank">
       <div class="link-platform">IMDb</div>
       <div class="link-title">Shashank Kumar</div>
-      <div class="link-desc">Professional credits, filmography, and production history.</div>
-      <em class="link-arrow">↗</em>
+      <div class="link-desc">Professional credits and filmography</div>
     </a>
 
     <a href="mailto:Armansing5120@gmail.com" class="link-card">
       <div class="link-platform">Email</div>
       <div class="link-title">Armansing5120@gmail.com</div>
-      <div class="link-desc">For collaborations, productions, and opportunities. Response within 24 hours.</div>
-      <em class="link-arrow">↗</em>
+      <div class="link-desc">For collaborations and opportunities</div>
     </a>
 
     <a href="#" class="link-card">
       <div class="link-platform">Showreel</div>
       <div class="link-title">Cinematography Reel</div>
-      <div class="link-desc">Compilation of my best work — lighting, camera movement, and visual storytelling.</div>
-      <em class="link-arrow">↗</em>
+      <div class="link-desc">Compilation of best work — lighting, camera, storytelling</div>
     </a>
 
   </div>
 </section>
 
 <section id="skills">
-  <div class="section-label">04 — Craft</div>
-  <h2 class="section-title">Tools &<br><em>Disciplines</em></h2>
-  <div class="skills-wrapper">
-    <div class="skills-col">
+  <h2 class="section-title">Technical <span>Skills</span></h2>
+  <div class="skills-grid">
+    <div class="skill-category">
       <h3>On Set</h3>
       <div class="skill-item">
-        <span class="skill-name">Lighting Design (Day/Night)</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+        <div class="skill-name">Lighting Design (Day/Night)</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Camera Operation & Lens</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
+        <div class="skill-name">Camera Operation & Lens Handling</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:88%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Film Production</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        <div class="skill-name">Film Production & On-Set Execution</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Visual Story Development</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        <div class="skill-name">Visual Story Development</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
       </div>
     </div>
-    <div class="skills-col">
-      <h3>Post & Tools</h3>
+    <div class="skill-category">
+      <h3>Post Production</h3>
       <div class="skill-item">
-        <span class="skill-name">Color Grading</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+        <div class="skill-name">Color Correction & Grading</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">DaVinci Resolve</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
+        <div class="skill-name">DaVinci Resolve</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Editing (Reels/YouTube)</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+        <div class="skill-name">Editing (Reels/YouTube)</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Shot Breakdown & Decks</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
+        <div class="skill-name">Shot Breakdown & Creative Decks</div>
+        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="contact">
-  <div class="section-label" style="justify-content:center">05 — Contact</div>
-  <div class="contact-big">Let's talk and see<br><span>where it takes us.</span></div>
+<section id="contact" class="contact-section">
+  <h2 class="contact-title">Let's talk and see<br><span>where it takes us.</span></h2>
   <div class="contact-sub">Available for collaborations · Productions · Music Videos · Brand Content</div>
-  <div class="contact-links">
-    <a href="mailto:Armansing5120@gmail.com" class="contact-link">Email</a>
-    <a href="#" class="contact-link">Instagram</a>
-    <a href="#" class="contact-link">IMDb</a>
+  <div class="contact-buttons">
+    <a href="mailto:Armansing5120@gmail.com" class="contact-btn">Email Me</a>
+    <a href="#" class="contact-btn" target="_blank">Instagram</a>
+    <a href="#" class="contact-btn" target="_blank">IMDb</a>
   </div>
-  <div style="margin-top: 48px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--mid);">
-    📞 (+91) 8368084966
-  </div>
+  <div class="phone">📞 (+91) 8368084966</div>
 </section>
 
 <footer>
-  <p>© 2025 Shashank Kumar · Hyderabad, India</p>
-  <div class="footer-mark">S.K.</div>
-  <p>Cinematographer · Visual Storyteller</p>
+  <p>© 2025 Shashank Kumar — Cinematographer. Hyderabad, India</p>
 </footer>
 
 <script>
-  const fills = document.querySelectorAll('.skill-fill');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) e.target.classList.add('animate');
-    });
-  }, { threshold: 0.3 });
-  fills.forEach(f => observer.observe(f));
-
-  document.querySelectorAll('a[href^="#"]').forEach(a => {
-    a.addEventListener('click', e => {
+  // Smooth scroll for navigation
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
       e.preventDefault();
-      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth' });
+      }
     });
   });
+
+  // Animate skill bars on scroll
+  const skillBars = document.querySelectorAll('.skill-progress');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const bar = entry.target;
+        const width = bar.style.width;
+        bar.style.width = '0';
+        setTimeout(() => {
+          bar.style.width = width;
+        }, 100);
+        observer.unobserve(bar);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  skillBars.forEach(bar => observer.observe(bar));
 </script>
 </body>
 </html>
