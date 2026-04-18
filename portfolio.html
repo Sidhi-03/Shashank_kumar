@@ -1,617 +1,70 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Shashank Kumar — Cinematographer</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<style>
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    background: #080808;
-    color: #e8e4dc;
-    font-family: 'Cormorant Garamond', serif;
-    line-height: 1.5;
-  }
-
-  /* Navigation */
-  nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    padding: 24px 48px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(8,8,8,0.95);
-    z-index: 100;
-    backdrop-filter: blur(10px);
-  }
-
-  .logo {
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: 4px;
-    color: #e8e4dc;
-    text-decoration: none;
-  }
-
-  .logo span { color: #c8a96e; }
-
-  .nav-links {
-    display: flex;
-    gap: 40px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #aaaaaa;
-    text-decoration: none;
-    transition: color 0.3s;
-  }
-
-  .nav-links a:hover { color: #c8a96e; }
-
-  /* Hero Section */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 0 48px;
-    background: linear-gradient(135deg, #0f0f0f 0%, #080808 100%);
-    position: relative;
-  }
-
-  .hero-content {
-    max-width: 800px;
-  }
-
-  .hero-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 4px;
-    color: #c8a96e;
-    margin-bottom: 20px;
-  }
-
-  .hero h1 {
-    font-size: clamp(50px, 8vw, 100px);
-    font-weight: 300;
-    line-height: 1;
-    margin-bottom: 20px;
-  }
-
-  .hero h1 span {
-    color: #c8a96e;
-    font-style: italic;
-  }
-
-  .hero-tagline {
-    font-size: 18px;
-    color: #aaaaaa;
-    margin-bottom: 30px;
-    font-style: italic;
-  }
-
-  .hero-bio {
-    font-size: 16px;
-    color: #7a7a7a;
-    max-width: 500px;
-    line-height: 1.8;
-  }
-
-  /* Sections */
-  section {
-    padding: 100px 48px;
-  }
-
-  .section-title {
-    font-size: clamp(36px, 5vw, 56px);
-    font-weight: 300;
-    margin-bottom: 60px;
-  }
-
-  .section-title span {
-    color: #c8a96e;
-    font-style: italic;
-  }
-
-  /* About */
-  .about-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    max-width: 1200px;
-  }
-
-  .about-text p {
-    font-size: 18px;
-    line-height: 1.8;
-    color: #aaaaaa;
-    margin-bottom: 20px;
-  }
-
-  .about-text strong {
-    color: #e8e4dc;
-  }
-
-  .info-card {
-    background: #1a1a1a;
-    padding: 30px;
-    border-radius: 4px;
-  }
-
-  .info-item {
-    margin-bottom: 30px;
-    border-left: 2px solid #c8a96e;
-    padding-left: 20px;
-  }
-
-  .info-label {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #c8a96e;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .info-value {
-    font-size: 24px;
-    font-weight: 300;
-  }
-
-  /* Work Grid */
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-    gap: 30px;
-    max-width: 1400px;
-    margin: 0 auto;
-  }
-
-  .work-card {
-    background: #1a1a1a;
-    border-radius: 8px;
-    overflow: hidden;
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-
-  .work-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-  }
-
-  .work-image {
-    height: 220px;
-    background: linear-gradient(135deg, #2a2a2a, #1a1a1a);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #c8a96e;
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-  }
-
-  .work-info {
-    padding: 24px;
-  }
-
-  .work-category {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #c8a96e;
-    text-transform: uppercase;
-    margin-bottom: 8px;
-  }
-
-  .work-title {
-    font-size: 22px;
-    font-weight: 400;
-    margin-bottom: 10px;
-  }
-
-  .work-desc {
-    font-size: 14px;
-    color: #888;
-    line-height: 1.6;
-  }
-
-  /* Links Grid */
-  .links-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    max-width: 1200px;
-  }
-
-  .link-card {
-    background: #1a1a1a;
-    padding: 32px;
-    border-radius: 8px;
-    text-decoration: none;
-    transition: all 0.3s;
-    border: 1px solid #2a2a2a;
-  }
-
-  .link-card:hover {
-    background: #252525;
-    transform: translateY(-3px);
-    border-color: #c8a96e;
-  }
-
-  .link-platform {
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 2px;
-    color: #c8a96e;
-    text-transform: uppercase;
-    margin-bottom: 12px;
-  }
-
-  .link-title {
-    font-size: 20px;
-    color: #e8e4dc;
-    margin-bottom: 8px;
-  }
-
-  .link-desc {
-    font-size: 13px;
-    color: #888;
-    line-height: 1.6;
-  }
-
-  /* Skills */
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 50px;
-    max-width: 1000px;
-  }
-
-  .skill-category h3 {
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    letter-spacing: 2px;
-    color: #c8a96e;
-    margin-bottom: 30px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #2a2a2a;
-  }
-
-  .skill-item {
-    margin-bottom: 20px;
-  }
-
-  .skill-name {
-    font-size: 16px;
-    margin-bottom: 8px;
-    color: #cccccc;
-  }
-
-  .skill-bar {
-    height: 2px;
-    background: #2a2a2a;
-    border-radius: 2px;
-    overflow: hidden;
-  }
-
-  .skill-progress {
-    height: 100%;
-    background: #c8a96e;
-    width: 0%;
-    transition: width 1s ease;
-  }
-
-  /* Contact */
-  .contact-section {
-    text-align: center;
-    background: #0f0f0f;
-  }
-
-  .contact-title {
-    font-size: clamp(40px, 6vw, 80px);
-    font-weight: 300;
-    margin-bottom: 20px;
-  }
-
-  .contact-title span {
-    color: #c8a96e;
-    font-style: italic;
-  }
-
-  .contact-sub {
-    font-family: 'Space Mono', monospace;
-    font-size: 12px;
-    color: #888;
-    margin-bottom: 50px;
-  }
-
-  .contact-buttons {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .contact-btn {
-    padding: 14px 32px;
-    background: transparent;
-    border: 1px solid #3a3a3a;
-    color: #e8e4dc;
-    text-decoration: none;
-    font-family: 'Space Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 2px;
-    transition: all 0.3s;
-  }
-
-  .contact-btn:hover {
-    border-color: #c8a96e;
-    color: #c8a96e;
-  }
-
-  .phone {
-    margin-top: 40px;
-    font-family: 'Space Mono', monospace;
-    font-size: 14px;
-    color: #c8a96e;
-  }
-
-  /* Footer */
-  footer {
-    padding: 40px 48px;
-    text-align: center;
-    border-top: 1px solid #1a1a1a;
-    font-family: 'Space Mono', monospace;
-    font-size: 10px;
-    color: #666;
-  }
-
-  /* Responsive */
-  @media (max-width: 768px) {
-    nav {
-      padding: 20px 24px;
-    }
-    .nav-links {
-      display: none;
-    }
-    section {
-      padding: 60px 24px;
-    }
-    .hero {
-      padding: 0 24px;
-    }
-    .about-grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .work-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
+    <title>Shashank Kumar - Cinematographer</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background: #080808;
+            color: white;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px;
+        }
+        h1 {
+            font-size: 60px;
+            color: #c8a96e;
+        }
+        .section {
+            margin: 60px 0;
+            padding: 40px;
+            background: #1a1a1a;
+            border-radius: 10px;
+        }
+        a {
+            color: #c8a96e;
+            text-decoration: none;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #c8a96e;
+            color: #080808;
+            margin: 10px;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-
-<nav>
-  <a href="#" class="logo">S<span>.</span>KUMAR</a>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-<section class="hero">
-  <div class="hero-content">
-    <div class="hero-label">CINEMATOGRAPHER / VISUAL STORYTELLER</div>
-    <h1>Shashank <span>Kumar</span></h1>
-    <div class="hero-tagline">Lighting Design · Camera Operation · Color Grading</div>
-    <div class="hero-bio">Mindscreen Film Institute Graduate | Diploma with Distinction</div>
-  </div>
-</section>
-
-<section id="about">
-  <h2 class="section-title">About <span>Me</span></h2>
-  <div class="about-grid">
-    <div class="about-text">
-      <p>I'm a <strong>cinematographer</strong> focused on visual storytelling, combining technical expertise in camera systems, lens selection, and lighting design with a strong cinematic sensibility.</p>
-      <p>I approach cinematography as a craft where emotion, environment, and narrative intersect through the lens. Each frame I create is guided by lived experiences and a commitment to visual authenticity.</p>
-      <p>Completed a Diploma in Cinematography from <strong>Mindscreen Film Institute</strong>, specializing in camera operations and advanced lighting techniques. Graduated with distinction — ranked among the top three candidates during admission.</p>
+    <div class="container">
+        <h1>Shashank Kumar</h1>
+        <p style="font-size: 24px;">Cinematographer & Visual Storyteller</p>
+        
+        <div class="section">
+            <h2>About Me</h2>
+            <p>I'm a cinematographer based in Hyderabad, specializing in lighting design, camera operation, and color grading. Graduate of Mindscreen Film Institute with distinction.</p>
+        </div>
+        
+        <div class="section">
+            <h2>Contact</h2>
+            <p>Email: Armansing5120@gmail.com</p>
+            <p>Phone: (+91) 8368084966</p>
+            <a href="mailto:Armansing5120@gmail.com" class="btn">Email Me</a>
+        </div>
+        
+        <div class="section">
+            <h2>Links</h2>
+            <a href="#">Instagram: @ig_shashanksinghh</a><br>
+            <a href="#">IMDb: Shashank Kumar</a>
+        </div>
+        
+        <p style="text-align: center; margin-top: 60px;">© 2025 Shashank Kumar</p>
     </div>
-    <div class="info-card">
-      <div class="info-item">
-        <div class="info-label">Education</div>
-        <div class="info-value">Mindscreen Film Institute</div>
-        <div style="color:#888; margin-top:5px;">Diploma in Cinematography · Distinction</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">Location</div>
-        <div class="info-value">Hyderabad, India</div>
-      </div>
-      <div class="info-item">
-        <div class="info-label">Rank</div>
-        <div class="info-value">Top 3 — Admission Selection</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="work" style="background:#0a0a0a;">
-  <h2 class="section-title">Featured <span>Work</span></h2>
-  <div class="work-grid">
-    
-    <div class="work-card">
-      <div class="work-image">🎬 MUSIC VIDEO</div>
-      <div class="work-info">
-        <div class="work-category">Music Video</div>
-        <div class="work-title">Artist Collaborations</div>
-        <div class="work-desc">Creative decks, shot breakdowns, lighting design, and post-production for multiple music videos.</div>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-image">📱 BRAND CONTENT</div>
-      <div class="work-info">
-        <div class="work-category">Social Media</div>
-        <div class="work-title">Brand Campaigns</div>
-        <div class="work-desc">End-to-end video production for Reels, YouTube, and social media — from concept to final edit.</div>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-image">🎓 ACADEMIC FILMS</div>
-      <div class="work-info">
-        <div class="work-category">Mindscreen Projects</div>
-        <div class="work-title">Student Films</div>
-        <div class="work-desc">Camera operation, lighting design (day/night setups), and color grading for diploma projects.</div>
-      </div>
-    </div>
-
-    <div class="work-card">
-      <div class="work-image">📸 PHOTOGRAPHY</div>
-      <div class="work-info">
-        <div class="work-category">Still Portfolio</div>
-        <div class="work-title">Visual Storytelling</div>
-        <div class="work-desc">Framing, composition, and narrative through still photography.</div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<section id="links">
-  <h2 class="section-title">Connect <span>Online</span></h2>
-  <div class="links-grid">
-    
-    <a href="#" class="link-card" target="_blank">
-      <div class="link-platform">Instagram</div>
-      <div class="link-title">@ig_shashanksinghh</div>
-      <div class="link-desc">Visual diary, BTS, frames from recent projects</div>
-    </a>
-
-    <a href="#" class="link-card" target="_blank">
-      <div class="link-platform">IMDb</div>
-      <div class="link-title">Shashank Kumar</div>
-      <div class="link-desc">Professional credits and filmography</div>
-    </a>
-
-    <a href="mailto:Armansing5120@gmail.com" class="link-card">
-      <div class="link-platform">Email</div>
-      <div class="link-title">Armansing5120@gmail.com</div>
-      <div class="link-desc">For collaborations and opportunities</div>
-    </a>
-
-    <a href="#" class="link-card">
-      <div class="link-platform">Showreel</div>
-      <div class="link-title">Cinematography Reel</div>
-      <div class="link-desc">Compilation of best work — lighting, camera, storytelling</div>
-    </a>
-
-  </div>
-</section>
-
-<section id="skills">
-  <h2 class="section-title">Technical <span>Skills</span></h2>
-  <div class="skills-grid">
-    <div class="skill-category">
-      <h3>On Set</h3>
-      <div class="skill-item">
-        <div class="skill-name">Lighting Design (Day/Night)</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:90%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">Camera Operation & Lens Handling</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:88%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">Film Production & On-Set Execution</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">Visual Story Development</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
-      </div>
-    </div>
-    <div class="skill-category">
-      <h3>Post Production</h3>
-      <div class="skill-item">
-        <div class="skill-name">Color Correction & Grading</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">DaVinci Resolve</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:75%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">Editing (Reels/YouTube)</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:80%"></div></div>
-      </div>
-      <div class="skill-item">
-        <div class="skill-name">Shot Breakdown & Creative Decks</div>
-        <div class="skill-bar"><div class="skill-progress" style="width:85%"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="contact" class="contact-section">
-  <h2 class="contact-title">Let's talk and see<br><span>where it takes us.</span></h2>
-  <div class="contact-sub">Available for collaborations · Productions · Music Videos · Brand Content</div>
-  <div class="contact-buttons">
-    <a href="mailto:Armansing5120@gmail.com" class="contact-btn">Email Me</a>
-    <a href="#" class="contact-btn" target="_blank">Instagram</a>
-    <a href="#" class="contact-btn" target="_blank">IMDb</a>
-  </div>
-  <div class="phone">📞 (+91) 8368084966</div>
-</section>
-
-<footer>
-  <p>© 2025 Shashank Kumar — Cinematographer. Hyderabad, India</p>
-</footer>
-
-<script>
-  // Smooth scroll for navigation
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
-      }
-    });
-  });
-
-  // Animate skill bars on scroll
-  const skillBars = document.querySelectorAll('.skill-progress');
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const bar = entry.target;
-        const width = bar.style.width;
-        bar.style.width = '0';
-        setTimeout(() => {
-          bar.style.width = width;
-        }, 100);
-        observer.unobserve(bar);
-      }
-    });
-  }, { threshold: 0.5 });
-  
-  skillBars.forEach(bar => observer.observe(bar));
-</script>
 </body>
 </html>
