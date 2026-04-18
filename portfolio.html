@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sidhi — Cinematographer & Director</title>
+<title>Shashank Kumar — Cinematographer</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -32,7 +32,6 @@
     cursor: crosshair;
   }
 
-  /* GRAIN OVERLAY */
   body::before {
     content: '';
     position: fixed;
@@ -43,7 +42,6 @@
     opacity: 0.35;
   }
 
-  /* LOADING SCREEN */
   #loader {
     position: fixed;
     inset: 0;
@@ -86,7 +84,6 @@
   @keyframes fillBar { from { width: 0; } to { width: 100%; } }
   @keyframes blink { from { opacity: 0.3; } to { opacity: 1; } }
 
-  /* NAV */
   nav {
     position: fixed;
     top: 0;
@@ -97,7 +94,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    mix-blend-mode: normal;
     background: linear-gradient(to bottom, rgba(8,8,8,0.9) 0%, transparent 100%);
   }
 
@@ -130,7 +126,6 @@
 
   .nav-links a:hover { color: var(--gold); }
 
-  /* HERO */
   #hero {
     height: 100vh;
     position: relative;
@@ -156,24 +151,6 @@
       linear-gradient(rgba(200,169,110,0.04) 1px, transparent 1px),
       linear-gradient(90deg, rgba(200,169,110,0.04) 1px, transparent 1px);
     background-size: 80px 80px;
-  }
-
-  .hero-filmstrip {
-    position: absolute;
-    right: 48px;
-    top: 0;
-    bottom: 0;
-    width: 60px;
-    display: flex;
-    flex-direction: column;
-    gap: 0;
-    opacity: 0.12;
-  }
-
-  .strip-hole {
-    flex: 1;
-    border: 1px solid var(--gold);
-    margin: 3px 8px;
   }
 
   .hero-content {
@@ -269,7 +246,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* SECTION COMMON */
   section {
     padding: 120px 48px;
     position: relative;
@@ -306,7 +282,6 @@
 
   .section-title em { font-style: italic; color: var(--gold); }
 
-  /* ABOUT */
   #about { background: var(--near-black); }
 
   .about-grid {
@@ -359,7 +334,6 @@
     margin-top: 6px;
   }
 
-  /* WORK */
   #work { background: var(--black); }
 
   .work-grid {
@@ -374,7 +348,6 @@
     aspect-ratio: 16/10;
     background: var(--charcoal);
     cursor: pointer;
-    group: true;
   }
 
   .work-item::before {
@@ -394,32 +367,6 @@
   }
 
   .work-item:hover .work-bg { transform: scale(1.08); }
-
-  .work-item:nth-child(1) .work-bg {
-    background: linear-gradient(135deg, #1a0a0a, #2d1515, #1a0a0a);
-    background-image: repeating-linear-gradient(
-      45deg,
-      transparent,
-      transparent 20px,
-      rgba(200,169,110,0.03) 20px,
-      rgba(200,169,110,0.03) 21px
-    );
-  }
-  .work-item:nth-child(2) .work-bg {
-    background: linear-gradient(135deg, #0a0a1a, #151528, #0a0a1a);
-  }
-  .work-item:nth-child(3) .work-bg {
-    background: linear-gradient(135deg, #0a1a0a, #152815, #0a1a0a);
-  }
-  .work-item:nth-child(4) .work-bg {
-    background: linear-gradient(135deg, #1a1a0a, #28281a, #1a1a0a);
-  }
-  .work-item:nth-child(5) .work-bg {
-    background: linear-gradient(135deg, #1a0a1a, #281528, #1a0a1a);
-  }
-  .work-item:nth-child(6) .work-bg {
-    background: linear-gradient(135deg, #0a1a1a, #152828, #0a1a1a);
-  }
 
   .work-info {
     position: absolute;
@@ -480,7 +427,6 @@
 
   .work-link svg { width: 14px; height: 14px; }
 
-  /* SHOWREEL / LINKS */
   #links { background: var(--near-black); }
 
   .links-grid {
@@ -551,7 +497,6 @@
 
   .link-card:hover .link-arrow { transform: translate(4px, -4px); }
 
-  /* SKILLS */
   #skills { background: var(--black); }
 
   .skills-wrapper {
@@ -604,7 +549,6 @@
 
   .skill-fill.animate { width: var(--w); }
 
-  /* CONTACT */
   #contact {
     background: var(--near-black);
     text-align: center;
@@ -657,7 +601,6 @@
     background: rgba(200,169,110,0.05);
   }
 
-  /* FOOTER */
   footer {
     background: var(--black);
     padding: 32px 48px;
@@ -683,21 +626,11 @@
     letter-spacing: 4px;
   }
 
-  /* DIVIDER */
-  .divider {
-    width: 60px;
-    height: 1px;
-    background: var(--graphite);
-    margin: 40px 0;
-  }
-
-  /* RESPONSIVE */
   @media (max-width: 768px) {
     nav { padding: 20px 24px; }
     .nav-links { display: none; }
     section { padding: 80px 24px; }
     #hero { padding: 0 24px 60px; }
-    .hero-filmstrip { display: none; }
     .about-grid { grid-template-columns: 1fr; gap: 40px; }
     .skills-wrapper { grid-template-columns: 1fr; gap: 40px; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
@@ -707,43 +640,31 @@
 </head>
 <body>
 
-<!-- LOADER -->
 <div id="loader">
   <div class="loader-text">Loading</div>
   <div class="loader-bar"><div class="loader-fill"></div></div>
 </div>
 
-<!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">S<span>.</span>PORTFOLIO</a>
+  <a href="#hero" class="nav-logo">S<span>.</span>KUMAR</a>
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
-    <li><a href="#work">Work</a></li>
-    <li><a href="#links">Links</a></li>
+    <li><a href="#work">Projects</a></li>
+    <li><a href="#links">Contact</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
   <div class="hero-lines"></div>
-  <div class="hero-filmstrip">
-    <div class="strip-hole"></div><div class="strip-hole"></div>
-    <div class="strip-hole"></div><div class="strip-hole"></div>
-    <div class="strip-hole"></div><div class="strip-hole"></div>
-    <div class="strip-hole"></div><div class="strip-hole"></div>
-    <div class="strip-hole"></div><div class="strip-hole"></div>
-    <div class="strip-hole"></div><div class="strip-hole"></div>
-  </div>
   <div class="hero-content">
-    <div class="hero-label">Director of Photography · Hyderabad</div>
-    <h1 class="hero-name">Sidhi<br><em>Sees</em></h1>
-    <p class="hero-role">Cinematographer & Aspiring Director</p>
+    <div class="hero-label">Cinematographer · Hyderabad</div>
+    <h1 class="hero-name">Shashank<br><em>Kumar</em></h1>
+    <p class="hero-role">Cinematographer & Visual Storyteller</p>
     <p class="hero-tagline">
-      VISUAL STORYTELLING · AI/VFX CONCEPTS<br>
-      TELUGU FILM INDUSTRY · GODACHARI 2 UNIT
+      LIGHTING DESIGN · CAMERA OPERATION · COLOR GRADING<br>
+      MINDSREEN FILM INSTITUTE · DIPLOMA WITH DISTINCTION
     </p>
   </div>
   <div class="scroll-hint">
@@ -752,170 +673,124 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
   <div class="section-label">01 — About</div>
   <h2 class="section-title">Eye behind<br>the <em>lens</em></h2>
   <div class="about-grid">
     <div class="about-text">
-      <p>I'm a <strong>21-year-old filmmaker and cinematographer</strong> based in Hyderabad, currently working as an Assistant Director on <strong>Godachari 2</strong> — a high-profile Telugu spy-action thriller with People Media Factory.</p>
-      <p>My work spans <strong>costume coordination, artist-calling AD work, and AI-driven VFX concept visualization</strong> — bridging the traditional set and the future of production.</p>
-      <p>Ultimately, I want to <strong>direct and shoot films</strong> with the visual literacy of a DP and the storytelling instincts of a director. Influenced by Cuarón, Spielberg, and Miyazaki.</p>
+      <p>I'm a <strong>cinematographer</strong> focused on visual storytelling, combining technical expertise in camera systems, lens selection, and lighting design with a strong cinematic sensibility. Experienced in collaborating with agencies and creative teams to deliver high-quality, emotionally driven visuals, overseeing projects from concept to final frame with precision and artistic intent.</p>
+      <p>I approach cinematography as a craft where emotion, environment, and narrative intersect through the lens. Each frame I create is guided by lived experiences and a commitment to visual authenticity. My work focuses on translating story into immersive imagery that connects audiences to both reality and artistry.</p>
+      <p><strong>Education:</strong> Completed a Diploma in Cinematography from <strong>Mindscreen Film Institute</strong>, specializing in camera operations and advanced lighting techniques (structured day and night setups). Graduated with distinction — ranked among the top three candidates during admission.</p>
     </div>
     <div class="about-stats">
       <div class="stat">
-        <div class="stat-num">2</div>
-        <div class="stat-label">Production Credits (Active)</div>
+        <div class="stat-num">Distinction</div>
+        <div class="stat-label">Mindscreen Film Institute</div>
       </div>
       <div class="stat">
-        <div class="stat-num">∞</div>
-        <div class="stat-label">Frames Imagined Daily</div>
+        <div class="stat-num">Top 3</div>
+        <div class="stat-label">Admission Selection Rank</div>
       </div>
       <div class="stat">
         <div class="stat-num">HYD</div>
-        <div class="stat-label">Base — Hyderabad, India</div>
+        <div class="stat-label">Hyderabad, India</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WORK -->
 <section id="work">
-  <div class="section-label">02 — Work</div>
+  <div class="section-label">02 — My Work</div>
   <h2 class="section-title">Selected<br><em>Projects</em></h2>
-
-  <!-- EDIT THESE CARDS WITH YOUR REAL WORK -->
   <div class="work-grid">
 
     <div class="work-item">
       <div class="work-bg"></div>
-      <a class="work-link" href="YOUR_LINK_HERE" target="_blank">
+      <a class="work-link" href="#" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
       <div class="work-info">
-        <div class="work-type">Feature Film · AD</div>
-        <div class="work-title">Godachari 2</div>
-        <div class="work-meta">People Media Factory · 2024–2025 · Telugu</div>
+        <div class="work-type">Music Video</div>
+        <div class="work-title">Artist Collaboration</div>
+        <div class="work-meta">Creative Decks · Shot Breakdowns · Post-Production</div>
       </div>
     </div>
 
     <div class="work-item">
       <div class="work-bg"></div>
-      <a class="work-link" href="YOUR_LINK_HERE" target="_blank">
+      <a class="work-link" href="#" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
       <div class="work-info">
-        <div class="work-type">Short Film · Director</div>
-        <div class="work-title">Add Your Short Film</div>
-        <div class="work-meta">Year · Format · Role</div>
+        <div class="work-type">Brand Content</div>
+        <div class="work-title">Social Media Campaigns</div>
+        <div class="work-meta">Reels · YouTube · Visual Treatment</div>
       </div>
     </div>
 
     <div class="work-item">
       <div class="work-bg"></div>
-      <a class="work-link" href="YOUR_LINK_HERE" target="_blank">
+      <a class="work-link" href="#" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
       <div class="work-info">
-        <div class="work-type">AI / VFX Concept</div>
-        <div class="work-title">Visual Concepts</div>
-        <div class="work-meta">Midjourney · Runway ML · Ongoing</div>
+        <div class="work-type">Academic Films</div>
+        <div class="work-title">Mindscreen Projects</div>
+        <div class="work-meta">Camera Operation · Lighting Design · Color Grading</div>
       </div>
     </div>
 
     <div class="work-item">
       <div class="work-bg"></div>
-      <a class="work-link" href="YOUR_LINK_HERE" target="_blank">
+      <a class="work-link" href="#" target="_blank">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
       </a>
       <div class="work-info">
         <div class="work-type">Photography</div>
-        <div class="work-title">Still Photography</div>
-        <div class="work-meta">Add your photography work here</div>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-bg"></div>
-      <a class="work-link" href="YOUR_LINK_HERE" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
-      <div class="work-info">
-        <div class="work-type">Cinematography</div>
-        <div class="work-title">DOP Reel Work</div>
-        <div class="work-meta">Add your DP work here</div>
-      </div>
-    </div>
-
-    <div class="work-item">
-      <div class="work-bg"></div>
-      <a class="work-link" href="YOUR_LINK_HERE" target="_blank">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
-      </a>
-      <div class="work-info">
-        <div class="work-type">Concept / Script</div>
-        <div class="work-title">Darwaza</div>
-        <div class="work-meta">Original concept · Short Vertical Film</div>
+        <div class="work-title">Still Portfolio</div>
+        <div class="work-meta">Framing · Composition · Visual Storytelling</div>
       </div>
     </div>
 
   </div>
 </section>
 
-<!-- LINKS -->
 <section id="links">
   <div class="section-label">03 — Connect</div>
   <h2 class="section-title">Find me<br><em>online</em></h2>
-
-  <!-- REPLACE HREF WITH YOUR REAL LINKS -->
   <div class="links-grid">
 
-    <a href="YOUR_YOUTUBE_LINK" target="_blank" class="link-card">
-      <div class="link-platform">YouTube</div>
-      <div class="link-title">Showreel & Video Work</div>
-      <div class="link-desc">Watch my cinematography reel, behind-the-scenes, and video projects.</div>
-      <em class="link-arrow">↗</em>
-    </a>
-
-    <a href="YOUR_INSTAGRAM_LINK" target="_blank" class="link-card">
+    <a href="#" target="_blank" class="link-card">
       <div class="link-platform">Instagram</div>
-      <div class="link-title">Visual Diary</div>
-      <div class="link-desc">Stills, frames, set life, and visual experiments from the field.</div>
+      <div class="link-title">@ig_shashanksinghh</div>
+      <div class="link-desc">Visual diary, behind-the-scenes, frames from recent projects, and creative experiments.</div>
       <em class="link-arrow">↗</em>
     </a>
 
-    <a href="YOUR_VIMEO_LINK" target="_blank" class="link-card">
-      <div class="link-platform">Vimeo</div>
-      <div class="link-title">Curated Film Work</div>
-      <div class="link-desc">High-quality uploads of short films, cinematography samples, and edits.</div>
+    <a href="#" target="_blank" class="link-card">
+      <div class="link-platform">IMDb</div>
+      <div class="link-title">Shashank Kumar</div>
+      <div class="link-desc">Professional credits, filmography, and production history.</div>
       <em class="link-arrow">↗</em>
     </a>
 
-    <a href="YOUR_LINKEDIN_LINK" target="_blank" class="link-card">
-      <div class="link-platform">LinkedIn</div>
-      <div class="link-title">Professional Profile</div>
-      <div class="link-desc">Credits, experience on Godachari 2, and professional background.</div>
-      <em class="link-arrow">↗</em>
-    </a>
-
-    <a href="YOUR_BEHANCE_LINK" target="_blank" class="link-card">
-      <div class="link-platform">Behance / Drive</div>
-      <div class="link-title">AI & VFX Concepts</div>
-      <div class="link-desc">Visual development boards, Midjourney work, and pre-viz concepts.</div>
-      <em class="link-arrow">↗</em>
-    </a>
-
-    <a href="mailto:YOUR_EMAIL" class="link-card">
+    <a href="mailto:Armansing5120@gmail.com" class="link-card">
       <div class="link-platform">Email</div>
-      <div class="link-title">Direct Reach</div>
-      <div class="link-desc">For collaborations, productions, and opportunities. Response within 24hrs.</div>
+      <div class="link-title">Armansing5120@gmail.com</div>
+      <div class="link-desc">For collaborations, productions, and opportunities. Response within 24 hours.</div>
+      <em class="link-arrow">↗</em>
+    </a>
+
+    <a href="#" class="link-card">
+      <div class="link-platform">Showreel</div>
+      <div class="link-title">Cinematography Reel</div>
+      <div class="link-desc">Compilation of my best work — lighting, camera movement, and visual storytelling.</div>
       <em class="link-arrow">↗</em>
     </a>
 
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-label">04 — Craft</div>
   <h2 class="section-title">Tools &<br><em>Disciplines</em></h2>
@@ -923,65 +798,65 @@
     <div class="skills-col">
       <h3>On Set</h3>
       <div class="skill-item">
-        <span class="skill-name">AD / Production</span>
+        <span class="skill-name">Lighting Design (Day/Night)</span>
+        <div class="skill-bar"><div class="skill-fill" style="--w:90%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Camera Operation & Lens</span>
+        <div class="skill-bar"><div class="skill-fill" style="--w:88%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Film Production</span>
         <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Cinematography</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
-      </div>
-      <div class="skill-item">
-        <span class="skill-name">Directing</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
-      </div>
-      <div class="skill-item">
-        <span class="skill-name">Photography</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+        <span class="skill-name">Visual Story Development</span>
+        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
       </div>
     </div>
     <div class="skills-col">
-      <h3>Tools & Tech</h3>
+      <h3>Post & Tools</h3>
       <div class="skill-item">
-        <span class="skill-name">DaVinci Resolve</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:60%"></div></div>
-      </div>
-      <div class="skill-item">
-        <span class="skill-name">Midjourney / AI</span>
+        <span class="skill-name">Color Grading</span>
         <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Runway ML</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:70%"></div></div>
+        <span class="skill-name">DaVinci Resolve</span>
+        <div class="skill-bar"><div class="skill-fill" style="--w:75%"></div></div>
       </div>
       <div class="skill-item">
-        <span class="skill-name">Topaz / Magnific</span>
-        <div class="skill-bar"><div class="skill-fill" style="--w:65%"></div></div>
+        <span class="skill-name">Editing (Reels/YouTube)</span>
+        <div class="skill-bar"><div class="skill-fill" style="--w:80%"></div></div>
+      </div>
+      <div class="skill-item">
+        <span class="skill-name">Shot Breakdown & Decks</span>
+        <div class="skill-bar"><div class="skill-fill" style="--w:85%"></div></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="section-label" style="justify-content:center">05 — Contact</div>
-  <div class="contact-big">Let's make<br><span>something</span><br>together.</div>
-  <div class="contact-sub">Available for collaborations · Productions · Gigs</div>
+  <div class="contact-big">Let's talk and see<br><span>where it takes us.</span></div>
+  <div class="contact-sub">Available for collaborations · Productions · Music Videos · Brand Content</div>
   <div class="contact-links">
-    <a href="mailto:YOUR_EMAIL" class="contact-link">Email Me</a>
-    <a href="YOUR_INSTAGRAM_LINK" target="_blank" class="contact-link">Instagram</a>
-    <a href="YOUR_LINKEDIN_LINK" target="_blank" class="contact-link">LinkedIn</a>
+    <a href="mailto:Armansing5120@gmail.com" class="contact-link">Email</a>
+    <a href="#" class="contact-link">Instagram</a>
+    <a href="#" class="contact-link">IMDb</a>
+  </div>
+  <div style="margin-top: 48px; font-family: 'Space Mono', monospace; font-size: 10px; color: var(--mid);">
+    📞 (+91) 8368084966
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <p>© 2025 Sidhi · Hyderabad, India · All rights reserved</p>
-  <div class="footer-mark">S.</div>
-  <p>Cinematographer · Director · Storyteller</p>
+  <p>© 2025 Shashank Kumar · Hyderabad, India</p>
+  <div class="footer-mark">S.K.</div>
+  <p>Cinematographer · Visual Storyteller</p>
 </footer>
 
 <script>
-  // Skill bar animation on scroll
   const fills = document.querySelectorAll('.skill-fill');
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(e => {
@@ -990,7 +865,6 @@
   }, { threshold: 0.3 });
   fills.forEach(f => observer.observe(f));
 
-  // Smooth nav links
   document.querySelectorAll('a[href^="#"]').forEach(a => {
     a.addEventListener('click', e => {
       e.preventDefault();
